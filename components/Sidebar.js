@@ -1,5 +1,6 @@
 // components/Sidebar.js
 import Link from 'next/link';
+import '../src/app/globals.css'
 
 export default function Sidebar() {
   return (

@@ -1,4 +1,6 @@
 // components/Header.js
+import '../src/app/globals.css'
+
 export default function Header() {
     return (
       <header className="bg-white shadow flex justify-between items-center px-6 py-4">
