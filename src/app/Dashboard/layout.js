@@ -4,10 +4,10 @@ import '../globals.css'
 
 export default function RootLayout({ children }) {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col flex-grow">
-        <Header />
+        <Header titulo_pantalla={'Inicio'} />
         <main className="flex-grow p-6 overflow-y-auto">
           {children}
         </main>

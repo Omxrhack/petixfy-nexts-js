@@ -6,11 +6,13 @@ import { useState } from 'react';
 
 export default function Registro() {
   const [formData, setFormData] = useState({
-    ownerName: '',
+    nombre_usuario: '',
+    apellido_usuario: '',
     email: '',
     password: '',
-    petName: '',
-    petType: '',
+    nombre_mascota: '',
+    tipo_mascota: '',
+    tipo_usuario: 0
   });
 
   const handleChange = (e) => {
@@ -30,14 +32,26 @@ export default function Registro() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-4 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-center text-gray-700">Registro de Dueño de Mascota</h2>
+        <h2 className="text-2xl font-semibold text-center text-gray-700">Registro de Usuarios</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-600">Nombre del dueño</label>
+            <label className="block text-sm font-medium text-gray-600">Nombre del Usuario</label>
             <input
               type="text"
-              name="ownerName"
-              value={formData.ownerName}
+              name="nombre_usuario"
+              value={formData.nombre_usuario}
+              onChange={handleChange}
+              className="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-600">Apellido del Usuario</label>
+            <input
+              type="text"
+              name="apellido_usuario"
+              value={formData.apellido_usuario}
               onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
               required
@@ -69,11 +83,26 @@ export default function Registro() {
           </div>
 
           <div>
+            <label className="block text-sm font-medium text-gray-600">Tipo de Usuario</label>
+            <select
+              name="tipo_usuario"
+              value={formData.tipo_usuario}
+              onChange={handleChange}
+              className="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+              required
+            >
+              <option value="">Selecciona un tipo</option>
+              <option value="0">Veterinario</option>
+              <option value="1">Dueño de Mascota</option>
+            </select>
+          </div>
+
+          <div>
             <label className="block text-sm font-medium text-gray-600">Nombre de la mascota</label>
             <input
               type="text"
-              name="petName"
-              value={formData.petName}
+              name="nombre_mascota"
+              value={formData.nombre_mascota}
               onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
               required
@@ -83,8 +112,8 @@ export default function Registro() {
           <div>
             <label className="block text-sm font-medium text-gray-600">Tipo de mascota</label>
             <select
-              name="petType"
-              value={formData.petType}
+              name="tipo_mascota"
+              value={formData.tipo_mascota}
               onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
               required
