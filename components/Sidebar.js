@@ -1,19 +1,21 @@
-// components/Sidebar.js
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../public/images/pt-logo-white.png';
-import '../src/app/globals.css'
+import Link from "next/link";
 
-export default function Sidebar() {
+// Puedes importar los íconos desde sus respectivas librerías.
+
+export default function Sidebar({ links = [] }) {
+  
   return (
-    <aside className="w-64 bg-gray-900 text-gray-200 flex-shrink-0">
-      <div className="p-4 text-center content-center font-bold text-lg">
-      </div>
-      <nav className="flex flex-col p-4">
-        <Link href="/dashboard" className="py-2 px-4 rounded hover:bg-gray-700">Inicio</Link>
-        <Link href="/Clientes" className="py-2 px-4 rounded hover:bg-gray-700">Clientes</Link>
-        <Link href="/Servicios" className="py-2 px-4 rounded hover:bg-gray-700">Servicios Veterinarios</Link>
-        <Link href="/Citas" className="py-2 px-4 rounded hover:bg-gray-700">Citas</Link>
+    <aside className="w-[9rem] border-r-[2px] border-[#00a99d]   text-gray-800 flex-shrink-0">
+      <nav className="flex h-full gap-[20px] justify-center flex-col p-4 items-center">
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            href={link.href}
+            className={'py-2 px-4 rounded hover:bg-gray-200  ${ router.pathname === link.href ? "bg-blue-500" : ""  }`}'}
+          >
+            {link.icon}
+          </Link>
+        ))}
       </nav>
     </aside>
   );

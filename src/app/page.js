@@ -80,7 +80,7 @@ export default function Home() {
             </Link>
           </div>
           <button
-           onClick={() => router.push("/Dashboard")}
+           onClick={() => router.push("/DashboardV")}
            className="w-full h-[40px] bg-[#00a99d] hover:bg-[#00a99d]/70 text-[#ffffff]">
             Inicio de sesion
           </button>
